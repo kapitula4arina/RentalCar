@@ -1,0 +1,103 @@
+.card {
+  width: 276px;
+  height: 424px;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  color: var(--main);
+}
+
+.image {
+  border-radius: 14px;
+  width: 276px;
+  height: 268px;
+  object-fit: cover;
+}
+
+.content {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.firstLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.model {
+  color: var(--button);
+}
+
+.price {
+  color: var(--main);
+}
+
+.secondLine {
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 16px;
+  margin-bottom: 0;
+}
+
+.thirdLine {
+  margin-top: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 16px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+}
+
+.divider {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background-color: var(--gray-light);
+  flex-shrink: 0;
+}
+
+button {
+  width: 276px;
+  padding: 12px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--white);
+  background-color: var(--button);
+  cursor: pointer;
+  display: block;
+  margin-top: 28px;
+  transition:
+    background-color 0.25s,
+    transform 0.25s;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.1);
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.1);
+}

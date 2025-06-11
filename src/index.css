@@ -58,17 +58,6 @@ a {
 button {
   cursor: pointer;
   font-family: 'Manrope', sans-serif;
-  color: var(--white);
-  background-color: var(--button);
-  border-radius: 12px;
-  transition:
-    background-color 0.25s,
-    transform 0.25s;
-}
-
-button:hover {
-  background-color: var(--button-hover);
-  transform: scale(1.1);
 }
 
 img {

@@ -1,13 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCars, fetchCarById } from './carsOps';
-import { fetchBrands } from './brandsOps';
+import { fetchCars, fetchCarById, fetchBrands } from './carsOps';
 
 const initialState = {
-  items: [], // усі авто (для каталогу)
-  currentCar: null, // авто для сторінки деталей
-  brands: [], // бренди для фільтрації
-  loading: false,
-  error: null,
+  items: [], // авто для каталогу
+  itemsLoading: false,
+  itemsError: null,
+
+  currentCar: null, // авто для деталей
+  currentCarLoading: false,
+  currentCarError: null,
+
+  brands: [], // список брендів
+  brandsLoading: false,
+  brandsError: null,
 };
 
 const carsSlice = createSlice({
@@ -16,43 +21,46 @@ const carsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
+      // fetchCars
       .addCase(fetchCars.pending, state => {
-        state.loading = true;
-        state.error = null;
+        state.itemsLoading = true;
+        state.itemsError = null;
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
-        state.loading = false;
+        state.itemsLoading = false;
         state.items = action.payload;
       })
       .addCase(fetchCars.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+        state.itemsLoading = false;
+        state.itemsError = action.payload;
       })
 
+      // fetchCarById
       .addCase(fetchCarById.pending, state => {
-        state.loading = true;
-        state.error = null;
+        state.currentCarLoading = true;
+        state.currentCarError = null;
       })
       .addCase(fetchCarById.fulfilled, (state, action) => {
-        state.loading = false;
+        state.currentCarLoading = false;
         state.currentCar = action.payload;
       })
       .addCase(fetchCarById.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+        state.currentCarLoading = false;
+        state.currentCarError = action.payload;
       })
 
+      // fetchBrands
       .addCase(fetchBrands.pending, state => {
-        state.loading = true;
-        state.error = null;
+        state.brandsLoading = true;
+        state.brandsError = null;
       })
       .addCase(fetchBrands.fulfilled, (state, action) => {
-        state.loading = false;
+        state.brandsLoading = false;
         state.brands = action.payload;
       })
       .addCase(fetchBrands.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+        state.brandsLoading = false;
+        state.brandsError = action.payload;
       });
   },
 });
