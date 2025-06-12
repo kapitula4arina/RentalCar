@@ -74,7 +74,7 @@
   flex-shrink: 0;
 }
 
-button {
+.buttonCard {
   width: 276px;
   padding: 12px 0;
   box-sizing: border-box;
@@ -84,7 +84,6 @@ button {
   line-height: 1.25;
   color: var(--white);
   background-color: var(--button);
-  cursor: pointer;
   display: block;
   margin-top: 28px;
   transition:
@@ -92,12 +91,7 @@ button {
     transform 0.25s;
 }
 
-button:hover {
-  background-color: var(--button-hover);
-  transform: scale(1.1);
-}
-
-button:hover {
+.buttonCard:hover {
   background-color: var(--button-hover);
   transform: scale(1.1);
 }

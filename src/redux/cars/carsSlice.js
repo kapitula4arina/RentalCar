@@ -2,15 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchCars, fetchCarById, fetchBrands } from './carsOps';
 
 const initialState = {
-  items: [], // авто для каталогу
+  items: [],
   itemsLoading: false,
   itemsError: null,
-
-  currentCar: null, // авто для деталей
+  totalCars: 0,
+  page: 1,
+  currentCar: null,
   currentCarLoading: false,
   currentCarError: null,
-
-  brands: [], // список брендів
+  brands: [],
   brandsLoading: false,
   brandsError: null,
 };
@@ -28,7 +28,16 @@ const carsSlice = createSlice({
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.itemsLoading = false;
-        state.items = action.payload;
+        const { cars, totalCars, page } = action.payload;
+
+        state.totalCars = totalCars;
+        state.page = page;
+
+        if (page && page > 1) {
+          state.items = [...state.items, ...cars];
+        } else {
+          state.items = cars;
+        }
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.itemsLoading = false;

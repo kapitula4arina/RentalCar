@@ -7,8 +7,7 @@ export const fetchCars = createAsyncThunk(
   async (params, thunkAPI) => {
     try {
       const { data } = await getCars(params);
-      // Повертаємо масив машин з об'єкта data
-      return data.cars;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

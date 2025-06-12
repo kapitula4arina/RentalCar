@@ -7,7 +7,7 @@ const capitalizeType = word => {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 };
 
-const CarCard = ({ car }) => {
+const CarCard = ({ car, onReadMore }) => {
   const {
     brand,
     model,
@@ -27,7 +27,7 @@ const CarCard = ({ car }) => {
     addressParts.length >= 3 ? addressParts[addressParts.length - 1] : '';
 
   return (
-    <li className={css.card}>
+    <div className={css.card}>
       <img src={img} alt={`${brand} ${model}`} className={css.image} />
       <div className={css.content}>
         <div className={css.firstLine}>
@@ -53,9 +53,11 @@ const CarCard = ({ car }) => {
           <span>{mileage.toLocaleString()} km</span>
         </p>
 
-        <button className={css.button}>Read More</button>
+        <button className={css.buttonCard} onClick={() => onReadMore(car)}>
+          Read More
+        </button>
       </div>
-    </li>
+    </div>
   );
 };
 

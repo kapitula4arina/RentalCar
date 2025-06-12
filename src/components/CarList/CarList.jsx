@@ -1,11 +1,13 @@
 import CarCard from '../CarCard/CarCard';
 import css from './CarList.module.css';
 
-const CarList = ({ cars }) => {
+const CarList = ({ cars, onReadMore }) => {
   return (
     <ul className={css.list}>
       {cars.map(car => (
-        <CarCard key={car.id} car={car} />
+        <li key={car.id} className={css.item}>
+          <CarCard car={car} onReadMore={onReadMore} />
+        </li>
       ))}
     </ul>
   );
