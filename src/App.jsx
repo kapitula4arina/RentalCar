@@ -5,6 +5,7 @@ import CatalogPage from './pages/CatalogPage/CatalogPage';
 import CarDetailsPage from './pages/CarDetailsPage/CarDetailsPage';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

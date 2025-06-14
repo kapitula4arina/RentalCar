@@ -1,4 +1,5 @@
 import css from './CarCard.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const Divider = () => <span className={css.divider}></span>;
 
@@ -7,8 +8,9 @@ const capitalizeType = word => {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 };
 
-const CarCard = ({ car, onReadMore }) => {
+const CarCard = ({ car }) => {
   const {
+    id,
     brand,
     model,
     year,
@@ -19,6 +21,12 @@ const CarCard = ({ car, onReadMore }) => {
     type,
     mileage,
   } = car;
+
+  const navigate = useNavigate();
+
+  const handleReadMore = () => {
+    navigate(`/catalog/${id}`);
+  };
 
   const addressParts = address.split(',').map(part => part.trim());
   const city =
@@ -53,7 +61,7 @@ const CarCard = ({ car, onReadMore }) => {
           <span>{mileage.toLocaleString()} km</span>
         </p>
 
-        <button className={css.buttonCard} onClick={() => onReadMore(car)}>
+        <button className={css.buttonCard} onClick={handleReadMore}>
           Read More
         </button>
       </div>

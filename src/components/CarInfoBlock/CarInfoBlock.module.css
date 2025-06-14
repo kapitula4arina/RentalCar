@@ -1,0 +1,56 @@
+.container {
+  width: 100%;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main);
+  margin-bottom: 20px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+  font-family: var(--font-family);
+  font-weight: 500;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.icon {
+  margin-right: 8px;
+  flex-shrink: 0;
+  fill: var(--main);
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.label {
+  font-weight: 500;
+  margin-right: 4px;
+  line-height: 1.25;
+}
+
+.value {
+  font-weight: 500;
+  line-height: 1.25;
+}

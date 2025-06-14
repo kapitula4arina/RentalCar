@@ -1,0 +1,88 @@
+.container {
+  width: 488px;
+  height: 180px;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--main);
+  margin: 0;
+}
+
+.id {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--gray);
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.middleRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.addressBlock {
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+}
+
+.address {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+  margin: 0;
+}
+
+.mileage {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--button);
+  margin: 0 0 32px 0;
+}
+
+.description {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+  margin: 0;
+}
