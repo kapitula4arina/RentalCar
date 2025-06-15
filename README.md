@@ -72,10 +72,9 @@ npm install
 
 # Run development server
 npm run dev
-
+```
 
 ## Project Author
 
-Created by **Arina Kapitula**
-GitHub: [https://github.com/kapitula4arina](https://github.com/kapitula4arina)
-```
+Created by **Arina Kapitula** GitHub:
+[https://github.com/kapitula4arina](https://github.com/kapitula4arina)
