@@ -119,4 +119,10 @@
   line-height: 125%;
   border: none;
   cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--button-hover);
 }

@@ -11,12 +11,10 @@
   color: var(--main);
   background-color: var(--white);
   cursor: pointer;
-  transition:
-    border 0.25s,
-    transform 0.25s;
+  transition: border 0.25s;
 }
 
-.loadMore:hover {
+.loadMore:hover,
+.loadMore:focus {
   border: 1px solid var(--button-hover);
-  transform: scale(1.05);
 }

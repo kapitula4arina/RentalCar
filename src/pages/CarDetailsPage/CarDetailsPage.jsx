@@ -6,20 +6,21 @@ import CarImageWithForm from '../../components/CarImageWithForm/CarImageWithForm
 import CarMainInfo from '../../components/CarMainInfo/CarMainInfo';
 import CarInfoBlock from '../../components/CarInfoBlock/CarInfoBlock';
 import css from './CarDetailsPage.module.css';
+import Loader from '../../components/Loader/Loader';
 
 const CarDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
   const car = useSelector(state => state.cars.currentCar);
-  const loading = useSelector(state => state.cars.itemsLoading);
-  const error = useSelector(state => state.cars.itemsError);
+  const loading = useSelector(state => state.cars.currentCarLoading);
+  const error = useSelector(state => state.cars.currentCarError);
 
   useEffect(() => {
     dispatch(fetchCarById(id));
   }, [dispatch, id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
   if (!car) return null;
 

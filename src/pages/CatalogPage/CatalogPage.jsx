@@ -5,6 +5,7 @@ import CarList from '../../components/CarList/CarList';
 import Filters from '../../components/Filters/Filters';
 import LoadMoreButton from '../../components/LoadMoreButton/LoadMoreButton';
 import css from './CatalogPage.module.css';
+import Loader from '../../components/Loader/Loader';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -27,19 +28,16 @@ const CatalogPage = () => {
 
   const handleFiltersChange = newFilters => {
     setFilters(newFilters);
-    setPage(1); // скидаємо сторінку при зміні фільтрів
+    setPage(1);
   };
 
-  const handleReadMore = car => {
-    // логіка, якщо потрібно
-  };
+  const handleReadMore = car => {};
 
-  // Кнопка активна, якщо завантажених машин менше, ніж загальна кількість
   const canLoadMore = cars.length < totalCars;
 
   return (
     <div className="container">
-      {loading && page === 1 && <p>Loading...</p>}
+      {loading && <Loader />}
       {error && <p>{error}</p>}
       <Filters onSearch={handleFiltersChange} />
       <CarList cars={cars} onReadMore={handleReadMore} />

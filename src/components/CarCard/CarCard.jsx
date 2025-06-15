@@ -1,5 +1,7 @@
 import css from './CarCard.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFavorite } from '../../redux/favorites/favoritesSlice';
 
 const Divider = () => <span className={css.divider}></span>;
 
@@ -23,9 +25,13 @@ const CarCard = ({ car }) => {
   } = car;
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleReadMore = () => {
-    navigate(`/catalog/${id}`);
+  const favorites = useSelector(state => state.favorites);
+  const isFavorite = favorites.includes(id);
+
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavorite(id));
   };
 
   const addressParts = address.split(',').map(part => part.trim());
@@ -36,7 +42,21 @@ const CarCard = ({ car }) => {
 
   return (
     <div className={css.card}>
-      <img src={img} alt={`${brand} ${model}`} className={css.image} />
+      <div className={css.imageWrapper}>
+        <img src={img} alt={`${brand} ${model}`} className={css.image} />
+        <button className={css.favoriteButton} onClick={handleToggleFavorite}>
+          <svg
+            width="16"
+            height="16"
+            className={`${css.icon} ${isFavorite ? css.active : css.disabled}`}
+          >
+            <use
+              href={`/icons.svg#${isFavorite ? 'icon-active-heart' : 'icon-disabled-heart'}`}
+            ></use>
+          </svg>
+        </button>
+      </div>
+
       <div className={css.content}>
         <div className={css.firstLine}>
           <span>
@@ -61,7 +81,10 @@ const CarCard = ({ car }) => {
           <span>{mileage.toLocaleString()} km</span>
         </p>
 
-        <button className={css.buttonCard} onClick={handleReadMore}>
+        <button
+          className={css.buttonCard}
+          onClick={() => navigate(`/catalog/${id}`)}
+        >
           Read More
         </button>
       </div>
