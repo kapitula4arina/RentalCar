@@ -92,7 +92,6 @@
   background-color: transparent;
 }
 
-/* Mileage Section */
 .mileageInputs {
   display: flex;
   gap: 0;
@@ -116,7 +115,6 @@
   border-radius: 0 12px 12px 0;
 }
 
-/* Префікси з шириною та відступами */
 .mileagePrefix {
   display: inline-block;
   font-family: var(--font-family);
@@ -129,27 +127,25 @@
   user-select: none;
 }
 
-/* Для From ширина префікса більша */
 .mileageInputWrapper:first-child .mileagePrefix {
-  width: 40px; /* ширина для "From" */
+  width: 40px; 
   margin-right: 3px;
 }
 
-/* Для To ширина префікса менша */
 .mileageInputWrapper:last-child .mileagePrefix {
-  width: 24px; /* ширина для "To" */
+  width: 24px; 
   margin-right: 3px;
 }
 
-/* Відступи для input залежно від префікса */
+
 .mileageInputWrapper:first-child .mileageInput {
   padding-left: 0;
-  width: calc(100% - 48px); /* 40 + 8 */
+  width: calc(100% - 48px); 
 }
 
 .mileageInputWrapper:last-child .mileageInput {
   padding-left: 0;
-  width: calc(100% - 32px); /* 24 + 8 */
+  width: calc(100% - 32px); 
 }
 
 .mileageInput {
@@ -164,7 +160,7 @@
   min-width: 0;
 }
 
-/* Button */
+
 .searchBtn {
   align-self: flex-end;
   height: 44px;

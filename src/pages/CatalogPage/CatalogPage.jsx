@@ -10,7 +10,7 @@ import Loader from '../../components/Loader/Loader';
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
-  const [filters, setFilters] = useState({}); // тримаємо фільтри
+  const [filters, setFilters] = useState({});
 
   const cars = useSelector(state => state.cars.items);
   const loading = useSelector(state => state.cars.itemsLoading);
