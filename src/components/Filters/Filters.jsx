@@ -6,7 +6,7 @@ import css from './Filters.module.css';
 
 const Filters = ({ onSearch }) => {
   const dispatch = useDispatch();
-  const brands = useSelector(state => state.cars.brands);
+  const brands = useSelector(state => state.filters.brands);
 
   const [make, setMake] = useState(null);
   const [price, setPrice] = useState(null);

@@ -65,6 +65,7 @@
   background: var(--inputs);
   border: none;
   box-sizing: border-box;
+  resize: none;
 
   font-family: var(--font-family);
   font-weight: 500;

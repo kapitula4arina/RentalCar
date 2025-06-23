@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCars, fetchCarById, fetchBrands } from './carsOps';
+import { fetchCars, fetchCarById } from './carsOps';
 
 const initialState = {
   items: [],
@@ -10,9 +10,6 @@ const initialState = {
   currentCar: null,
   currentCarLoading: false,
   currentCarError: null,
-  brands: [],
-  brandsLoading: false,
-  brandsError: null,
 };
 
 const carsSlice = createSlice({
@@ -56,20 +53,6 @@ const carsSlice = createSlice({
       .addCase(fetchCarById.rejected, (state, action) => {
         state.currentCarLoading = false;
         state.currentCarError = action.payload;
-      })
-
-      // fetchBrands
-      .addCase(fetchBrands.pending, state => {
-        state.brandsLoading = true;
-        state.brandsError = null;
-      })
-      .addCase(fetchBrands.fulfilled, (state, action) => {
-        state.brandsLoading = false;
-        state.brands = action.payload;
-      })
-      .addCase(fetchBrands.rejected, (state, action) => {
-        state.brandsLoading = false;
-        state.brandsError = action.payload;
       });
   },
 });

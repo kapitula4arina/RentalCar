@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorite } from '../../redux/favorites/favoritesSlice';
 
-const Divider = () => <span className={css.divider}></span>;
+const Divider = () => <span className={css.divider} aria-hidden="true"></span>;
 
 const capitalizeType = word => {
   if (!word) return '';
@@ -35,16 +35,19 @@ const CarCard = ({ car }) => {
   };
 
   const addressParts = address.split(',').map(part => part.trim());
-  const city =
-    addressParts.length >= 3 ? addressParts[addressParts.length - 2] : '';
-  const country =
-    addressParts.length >= 3 ? addressParts[addressParts.length - 1] : '';
+  const city = addressParts.at(-2) || '';
+  const country = addressParts.at(-1) || '';
 
   return (
-    <div className={css.card}>
+    <article className={css.card}>
       <div className={css.imageWrapper}>
         <img src={img} alt={`${brand} ${model}`} className={css.image} />
-        <button className={css.favoriteButton} onClick={handleToggleFavorite}>
+        <button
+          type="button"
+          className={css.favoriteButton}
+          onClick={handleToggleFavorite}
+          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        >
           <svg
             width="16"
             height="16"
@@ -58,14 +61,12 @@ const CarCard = ({ car }) => {
       </div>
 
       <div className={css.content}>
-        <div className={css.firstLine}>
-          <span>
-            <span>{brand} </span>
-            <span className={css.model}>{model}</span>
-            <span>, {year}</span>
-          </span>
+        <header className={css.firstLine}>
+          <h2 className={css.title}>
+            {brand} <span className={css.model}>{model}</span>, {year}
+          </h2>
           <span className={css.price}>${rentalPrice}</span>
-        </div>
+        </header>
 
         <p className={css.secondLine}>
           <span>{city}</span>
@@ -75,20 +76,24 @@ const CarCard = ({ car }) => {
           <span>{rentalCompany}</span>
         </p>
 
-        <p className={css.thirdLine}>
-          <span>{capitalizeType(type)}</span>
-          <Divider />
-          <span>{mileage.toLocaleString()} km</span>
-        </p>
+        <ul className={css.thirdLine}>
+          <li>{capitalizeType(type)}</li>
+          <li>
+            <Divider />
+          </li>
+          <li>{mileage.toLocaleString()} km</li>
+        </ul>
 
         <button
+          type="button"
           className={css.buttonCard}
           onClick={() => navigate(`/catalog/${id}`)}
+          aria-label={`Read more about ${brand} ${model}`}
         >
-          Read More
+          Read more
         </button>
       </div>
-    </div>
+    </article>
   );
 };
 
